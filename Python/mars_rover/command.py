@@ -2,10 +2,10 @@ from .plateau import Plateau
 from .rover import Rover, Squad
 
 """
-Contains the Execution class
+The Command Centre that is responsible for executing instructions
 """
 
-class Execution(object):
+class Command(object):
     """
     Responsible for execution of instructions
     """
@@ -20,10 +20,10 @@ class Execution(object):
                       instructions[r]['start'][2], 
                       instructions[r]['start'][4])
             
-            Execution.squad.add_rover(rover)
-            Execution.execute(rover, instructions[r]['path'], mars_plateau)
+            Command.squad.add_rover(rover)
+            Command.execute(rover, instructions[r]['path'], mars_plateau)
         
-        return Execution.squad
+        return Command.squad
     
     def execute(rover, commands, plateau):
         for c in commands:
@@ -33,4 +33,6 @@ class Execution(object):
             elif command == 'M':
                 if not rover.move(plateau):   
                     break
+   
+    
    
