@@ -15,7 +15,7 @@ class Rover(object):
     rotation = {'L': {'N':'W', 'W':'S', 'S':'E','E':'N'},
                 'R' : {'N':'E', 'W':'N', 'S':'W','E':'S'}}
     
-    invalid_move = "*Move off plateau"
+    invalid_move = " *Move off plateau"
     
     def __init__(self, x, y, dir):
         self.x = int(x)
@@ -24,7 +24,10 @@ class Rover(object):
         self.invalid_move = False
     
     def __repr__(self):
-        return "%d %d %s" %(self.x, self.y, self.dir)
+        output = "%d %d %s" %(self.x, self.y, self.dir)
+        if self.invalid_move == True:
+            output += Rover.invalid_move
+        return output
 
     
     def rotate(self, c):
@@ -75,9 +78,5 @@ class Squad(object):
     def __str__(self):
         s = ""
         for i in range(len(self.rovers)):
-            s += str(self.rovers[i]) + " "
-            if self.rovers[i].invalid_move == True:
-                s += Rover.invalid_move + "\n"
-            else:
-                s+= "\n"
+            s += str(self.rovers[i]) + "\n"
         return s
