@@ -1,4 +1,4 @@
-from mars_rover import Execution
+from mars_rover import Command
 
 def main():
     filename = 'sample_input/sampleinput.txt'    
