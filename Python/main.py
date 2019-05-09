@@ -15,7 +15,7 @@ def main():
     for i in range(int(len(content)/2)):
         rover_content[i] = {'start':content[i*2], 'path':content[(i*2)+1]}
         
-    print(Execution.extractInstructions(p_x, p_y, rover_content))
+    print(Command.extractInstructions(p_x, p_y, rover_content))
     
 
 
